@@ -1,0 +1,27 @@
+driver:
+  name: docker
+
+platforms:
+  - name: centos-7
+    driver_config:
+      image: corux/centos7-salt
+  - name: debian-8
+  - name: fedora-latest
+
+provisioner:
+  name: salt_solo
+  formula: vagrant
+  pillars-from-files:
+    vagrant.sls: pillar.example
+  pillars:
+    top.sls:
+      base:
+        "*":
+          - vagrant
+  state_top:
+    base:
+      "*":
+        - vagrant
+
+suites:
+  - name: default

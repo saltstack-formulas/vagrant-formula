@@ -1,0 +1,12 @@
+{% import_yaml 'vagrant/defaults.yaml' as default_settings %}
+{% set vagrant = salt['pillar.get']('vagrant', default=default_settings.get('vagrant'), merge=True) %}
+
+{% set baseurl = 'https://releases.hashicorp.com/vagrant/' ~ vagrant.version ~ '/vagrant_' ~ vagrant.version ~ '_x86_64' %}
+{% set vagrant = salt['grains.filter_by']({
+  'RedHat': {
+    'url': baseurl ~ '.rpm'
+  },
+  'Debian': {
+    'url': baseurl ~ '.deb'
+  }
+}, grain = 'os_family', merge=vagrant) %}

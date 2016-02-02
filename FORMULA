@@ -1,0 +1,7 @@
+name: vagrant
+os: CentOS, Fedora, Debian
+os_family: RedHat, Debian
+version: 201602
+release: 1
+summary: Formula for installing Vagrant
+description: Formula for installing Vagrant
