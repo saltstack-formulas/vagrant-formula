@@ -6,7 +6,6 @@ platforms:
     driver_config:
       image: corux/centos7-salt
   - name: debian-8
-  - name: fedora
 
 provisioner:
   name: salt_solo
