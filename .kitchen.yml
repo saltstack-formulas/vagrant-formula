@@ -7,7 +7,7 @@ platforms:
       image: corux/centos7-salt
       provision_command:
         - yum install make gcc -y
-  - name: debian-8
+  - name: debian-9
     driver_config:
       provision_command:
         - apt-get install make gcc -y
